@@ -14,8 +14,8 @@ import BookingsPage from './pages/BookingsPage'
 import BookingPage from './pages/BookingPage'
 import FilteredPage from './pages/FilteredPage'
 import dotenv from 'dotenv'
-// axios.defaults.baseURL = 'https://api-c63z.onrender.com';
-axios.defaults.baseURL = 'http://127.0.0.1:4000';
+axios.defaults.baseURL = 'https://sw-cf4jow0x7-harshpatel2910.vercel.app';
+// axios.defaults.baseURL = 'http://127.0.0.1:4000';
 
 // axios.defaults.baseURL = process.env.REACT_APP_API_URL;
 axios.defaults.withCredentials = true;
