@@ -31,17 +31,17 @@ export default function BookingWidget({place}){
         if(user !== null){
             if(checkIn.length == 0 || checkOut.length == 0 || numOfGuests.length == 0 || name.length == 0 || phone.length == 0){
                 alert('please enter all the details')
-                redirect(`https://backend-2eaf.onrender.com/place/${id}`)
+                redirect(`/place/${id}`)
             }
-            const response = await axios.post('https://backend-2eaf.onrender.com/bookings',{checkIn,checkOut,numOfGuests,name,phone,place:place._id,
+            const response = await axios.post('/bookings',{checkIn,checkOut,numOfGuests,name,phone,place:place._id,
                 price:(numberOfNights * place.price * Math.ceil(numOfGuests/place.maxGuests))
             });
             const bookingId = response.data._id;
-            setRedirect(`https://backend-2eaf.onrender.com/account/bookings/${bookingId}`);
+            setRedirect(`/account/bookings/${bookingId}`);
         }
         else{
             alert('Please Login!');
-            setRedirect(`https://backend-2eaf.onrender.com/`);
+            setRedirect(`/`);
         }
     }
 

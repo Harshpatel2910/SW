@@ -8,7 +8,7 @@ export function UserContextProvider({children}){
     const [ready,setReady] = useState(false);
     useEffect(() => {
         if(!user){
-            axios.get('https://backend-2eaf.onrender.com/profile').then(({data})=>{
+            axios.get('/profile').then(({data})=>{
                 setUser(data);
                 setReady(true);
             });

@@ -30,15 +30,15 @@ export default function FilteredPage(){
     }
 
     useEffect(()=>{
-        axios.get('https://backend-2eaf.onrender.com/places?city='+str).then(response=>{
+        axios.get('/places?city='+str).then(response=>{
             setPlaces([...response.data]);
             if(response.data.length === 0) setRedirect1(true);    
         });
-        axios.get('https://backend-2eaf.onrender.com/places?state='+str).then(response=>{
+        axios.get('/places?state='+str).then(response=>{
             setPlaces2([...response.data]);
             if(response.data.length === 0) setRedirect2(true);
         });
-        axios.get('https://backend-2eaf.onrender.com/places?country='+str).then(response=>{
+        axios.get('/places?country='+str).then(response=>{
             setPlaces3([...response.data]);
             if(response.data.length === 0) setRedirect3(true);
         });

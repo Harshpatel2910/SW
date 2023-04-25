@@ -24,7 +24,7 @@ export default function IndexPage(){
     }
 
     useEffect(()=>{
-        axios.get('https://backend-2eaf.onrender.com/places').then(response=>{
+        axios.get('/places').then(response=>{
             setPlaces(response.data);
         });
     }, []);

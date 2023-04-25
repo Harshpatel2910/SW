@@ -9,7 +9,7 @@ export default function AccountPage(){
     const {ready, user, setUser} = useContext(UserContext);
 
     async function logout(){
-        await axios.post('https://backend-2eaf.onrender.com/logout');
+        await axios.post('/logout');
         setRedirect('/'); // if this first then redirect to account page
         setUser(null); // if this first then redircted to login page 
     }

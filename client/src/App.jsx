@@ -14,8 +14,8 @@ import BookingsPage from './pages/BookingsPage'
 import BookingPage from './pages/BookingPage'
 import FilteredPage from './pages/FilteredPage'
 import dotenv from 'dotenv'
-axios.defaults.baseURL = 'https://backend-2eaf.onrender.com';
-// axios.defaults.baseURL = 'http://127.0.0.1:4000';
+// axios.defaults.baseURL = 'https://sw-i0j5qfdpq-harshpatel2910.vercel.app';
+axios.defaults.baseURL = 'https://backend-2eaf.onrender.com/';
 
 
 

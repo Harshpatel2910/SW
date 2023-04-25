@@ -13,7 +13,7 @@ export default function BookingPage(){
         if(!id){
             return;
         }
-        axios.get('https://backend-2eaf.onrender.com/bookings/'+id).then(response => {
+        axios.get('/bookings/'+id).then(response => {
             setBooking(response.data)
         })
         let ts = Date.now();

@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 export default function BookingsPage(){
     const [bookings,setBookings] = useState([]);
     useEffect(() => {
-        axios.get('https://backend-2eaf.onrender.com/bookings').then(({data}) => {
+        axios.get('/bookings').then(({data}) => {
             setBookings(data);
         });
     }, []);
