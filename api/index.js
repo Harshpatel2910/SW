@@ -102,7 +102,7 @@ async function generatepublicurl(id) {
 
 const bcryptSalt = bcrypt.genSaltSync(10);
 const jwtSecret = "bjhfewf74926966jheufuf";
-app.set("trust proxy", 1);
+// app.set("trust proxy", 1);
 app.use(express.json()); // to parse the json to read data
 app.use(cookieParser());
 app.use("/uploads", express.static(__dirname + "/uploads"));
