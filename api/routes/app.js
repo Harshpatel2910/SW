@@ -114,7 +114,7 @@ app.use(
   cors({
     credentials: true,
     // origin: 'http://127.0.0.1:5173',
-    origin: 'https://sw-frontend-in4360bly-harshpatel2910.vercel.app',
+    origin: 'https://sw-frontend-d5pqodbkz-harshpatel2910.vercel.app',
   })
 );
 
