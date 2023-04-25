@@ -14,7 +14,7 @@ export default function LoginPage(){
             if(email.length === 0 || password.length === 0){
                 alert('Incorrect Password or Username');
             } else{
-                const {data} = await axios.post('/login', {email,password});
+                const {data} = await axios.post('https://backend-2eaf.onrender.com/login', {email,password});
                 if(data === "not found"){
                     alert('Incorrect Password or Username');
                 } else{

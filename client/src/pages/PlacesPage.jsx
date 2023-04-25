@@ -6,7 +6,7 @@ import axios from "axios";
 export default function PlacesPage(){
     const [places,setPlaces] = useState([]);
     useEffect(() => {
-        axios.get('/user-places').then(({data}) => {
+        axios.get('https://backend-2eaf.onrender.com/user-places').then(({data}) => {
             setPlaces(data);
         });
     }, []);

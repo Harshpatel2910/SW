@@ -26,7 +26,7 @@ export default function PlacesFormPage(){
         if(!id){
             return;
         }
-        axios.get('/places/'+id).then(response=>{
+        axios.get('https://backend-2eaf.onrender.com/places/'+id).then(response=>{
             const {data} = response;
             setTitle(data.title);
             setAddress(data.address);
@@ -77,11 +77,11 @@ export default function PlacesFormPage(){
         if(id){ 
             // update place with given id
             // here to add id at begenning we are adding placedata in such way 
-            await axios.put('/places', {id, ...placeData});
+            await axios.put('https://backend-2eaf.onrender.com/places', {id, ...placeData});
             setRedirect(true);
         }else{
             // new place place
-            await axios.post('/places', placeData);
+            await axios.post('https://backend-2eaf.onrender.com/places', placeData);
             setRedirect(true);
         }
     }

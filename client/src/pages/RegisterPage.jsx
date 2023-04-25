@@ -9,7 +9,7 @@ export default function RegisterPage(){
     async function registerUser(ev){
         ev.preventDefault();
         try{
-            await axios.post('/register',{
+            await axios.post('https://backend-2eaf.onrender.com/register',{
                 name,
                 email,
                 password,
