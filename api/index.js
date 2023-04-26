@@ -116,10 +116,9 @@ app.use(express.urlencoded({ extended: true }));
 app.use(
   cors({
     credentials: true,
-    origin: "http://127.0.0.1:5173",
+    origin: process.env.CLIENT_URL,
   })
 );
-
 
 
 mongoose.connect(process.env.MONGO_URL);
@@ -297,7 +296,9 @@ app.put("/places", async (req, res) => {
   jwt.verify(token, jwtSecret, {}, async (err, userData) => {
     if (err) throw err;
     const placeDoc = await Place.findById(id);
-   
+    // console.log(userData.id);
+    // console.log(placeDoc.owner);
+    // console.log(placeDoc.owner.toString());
     if (userData.id === placeDoc.owner.toString()) {
       placeDoc.set({
         title,
@@ -393,7 +394,9 @@ app.get("/bookings", (req, res) => {
 
 app.get("/bookings/:id", async (req, res) => {
   const { id } = req.params;
-  res.json(await Booking.findById(id).populate("place"));
+  const data = await Booking.findById(id).populate("place");
+  console.log(data)
+  res.json(data);
 });
 
 app.delete("/deletebooking/:id", async (req, res) => {
@@ -430,6 +433,5 @@ app.post("/payment", async (req, res) => {
 
 app.listen(4000);
 
+
 module.exports = app;
-
-

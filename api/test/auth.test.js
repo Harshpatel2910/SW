@@ -24,20 +24,23 @@ describe("User",()=>{
         })
     })
 
-    //register module
+    // register module
     describe("POST /register",()=>{
         it("it should register user",(done)=>{
             chai
             .request(app)
             .post("/register")
             .send({
-                username:"harsh",
-                email:"op@gmail.com",
+                name:"harsh",
+                email:"op12345@gmail.com",
                 password:"1234",
             })
             .end((err,res)=>{
+                
                 res.statusCode.should.equal(200);
                 res.body.should.be.a('object');
+                res.body.should.have.property('name').eql('harsh');
+                res.body.should.have.property('email').eql('op12345@gmail.com');
                 done();
             })
         })
