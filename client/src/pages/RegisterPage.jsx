@@ -15,7 +15,6 @@ export default function RegisterPage(){
                 password,
             });
             alert('Registration successfull! Login Now');
-            
         }catch (e){
             alert('Registration failed!! Please try again later');
         }
