@@ -15,7 +15,8 @@ import BookingPage from './pages/BookingPage'
 import FilteredPage from './pages/FilteredPage'
 import dotenv from 'dotenv'
 // axios.defaults.baseURL = 'https://sw-i0j5qfdpq-harshpatel2910.vercel.app';
-axios.defaults.baseURL = 'https://backend-2eaf.onrender.com/';
+// axios.defaults.baseURL = 'https://backend-2eaf.onrender.com/';
+axios.defaults.baseURL = import.meta.env.VITE_API_BASE_URL;
 
 
 
