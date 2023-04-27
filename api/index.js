@@ -159,7 +159,13 @@ app.post("/login", async (req, res) => {
         {}, // flag
         (err, token) => {
           if (err) throw err;
-          res.cookie("token", token);
+          res.cookie("token", token,{
+
+            secure: process.env.NODE_ENV === "production", // Set to true in production
+            sameSite: "lax", // Set to "lax" or "strict" depending on your needs
+            httpOnly: true, // Recommended for security
+    
+          });
           // console.log(token);
           res.json(userDoc);
         }
