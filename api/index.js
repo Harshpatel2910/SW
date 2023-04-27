@@ -124,6 +124,7 @@ app.use(
 mongoose.connect(process.env.MONGO_URL);
 
 app.get("/test", (req, res) => {
+  mongoose.connect(process.env.MONGO_URL);
   res.json("test ok");
 });
 
@@ -142,6 +143,7 @@ app.post("/register", async (req, res) => {
 });
 
 app.post("/login", async (req, res) => {
+
   const { email, password } = req.body;
   const userDoc = await User.findOne({ email });
   if (userDoc) {
@@ -157,6 +159,7 @@ app.post("/login", async (req, res) => {
         (err, token) => {
           if (err) throw err;
           res.cookie("token", token);
+          // console.log(token);
           res.json(userDoc);
         }
       );
@@ -222,6 +225,8 @@ app.post("/upload", photosMiddleware.array("photos", 100), async (req, res) => {
 
 app.post("/places", (req, res) => {
   const { token } = req.cookies;
+  console.log(req.body);
+  console.log(req.cookies);
   const {
     title,
     address,
@@ -367,6 +372,9 @@ app.post("/bookings", (req, res) => {
   const { token } = req.cookies;
   const { place, checkIn, checkOut, numOfGuests, name, phone, price } =
     req.body;
+
+
+    // console.log(req.body);
   jwt.verify(token, jwtSecret, {}, async (err, userData) => {
     if (err) throw err;
     const bookingDoc = await Booking.create({
@@ -395,7 +403,7 @@ app.get("/bookings", (req, res) => {
 app.get("/bookings/:id", async (req, res) => {
   const { id } = req.params;
   const data = await Booking.findById(id).populate("place");
-  console.log(data)
+  // console.log(data)
   res.json(data);
 });
 
@@ -431,7 +439,7 @@ app.post("/payment", async (req, res) => {
 	}
 })
 
+module.exports = app;
 app.listen(4000);
 
 
-module.exports = app;
