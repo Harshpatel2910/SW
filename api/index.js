@@ -104,6 +104,14 @@ async function generatepublicurl(id) {
 
 const bcryptSalt = bcrypt.genSaltSync(10);
 const jwtSecret = "bjhfewf74926966jheufuf";
+// app.use(
+//   cors({
+//     credentials: true,
+//     // origin: 'http://127.0.0.1:5173',
+//     origin: process.env.FRONTEND_URL,
+//   })
+// );
+app.use(cors({ credentials: true, origin: true }))
 
 app.use(express.json()); // to parse the json to read data
 app.use(cookieParser());
@@ -113,13 +121,6 @@ app.use(bodyParser.urlencoded({ extended: true }))
 
 app.use("/uploads", express.static(__dirname + "/uploads"));
 app.use(express.urlencoded({ extended: true }));
-app.use(
-  cors({
-    credentials: true,
-    // origin: 'http://127.0.0.1:5173',
-    origin: process.env.FRONTEND_URL,
-  })
-);
 
 
 mongoose.connect(process.env.MONGO_URL);
