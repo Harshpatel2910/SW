@@ -107,8 +107,8 @@ const jwtSecret = "bjhfewf74926966jheufuf";
 // app.use(
 //   cors({
 //     credentials: true,
-//     // origin: 'http://127.0.0.1:5173',
-//     origin: process.env.FRONTEND_URL,
+//     origin: 'http://127.0.0.1:5173',
+//     // origin: process.env.FRONTEND_URL,
 //   })
 // );
 app.use(cors({ credentials: true, origin: true }))
@@ -160,12 +160,7 @@ app.post("/login", async (req, res) => {
         {}, // flag
         (err, token) => {
           if (err) throw err;
-          res.cookie("token", token,{
-
-            samesite:'None',
-            secure:True
-    
-          });
+          res.cookie("token", token);
           // console.log(token);
           res.json(userDoc);
         }

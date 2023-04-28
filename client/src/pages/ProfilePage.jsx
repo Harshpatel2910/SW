@@ -3,18 +3,13 @@ import { UserContext } from "../UserContext";
 import { Navigate } from "react-router-dom";
 import axios from "axios";
 import AccountNav from "../AccountNav";
-const config = {
-    headers: {
-      "Content-Type": "application/json"
-      },
-      withCredentials: true
-    }
+
 export default function AccountPage(){
     const [redirect,setRedirect] = useState(null);
     const {ready, user, setUser} = useContext(UserContext);
 
     async function logout(){
-        await axios.post('/logout',config);
+        await axios.post('/logout');
         setRedirect('/'); // if this first then redirect to account page
         setUser(null); // if this first then redircted to login page 
     }
