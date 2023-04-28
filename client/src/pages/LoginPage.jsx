@@ -2,7 +2,12 @@ import axios from "axios";
 import { useContext, useState } from "react";
 import { Link, Navigate } from "react-router-dom";
 import { UserContext } from "../UserContext";
-
+const config = {
+    headers: {
+      "Content-Type": "application/json"
+      },
+      withCredentials: true
+    }
 export default function LoginPage(){
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -15,7 +20,7 @@ export default function LoginPage(){
             if(email.length === 0 || password.length === 0){
                 alert('Incorrect Password or Username');
             } else{
-                const {data} = await axios.post('/login', {email,password});
+                const {data} = await axios.post('/login', {email,password},config);
                 if(data === "not found"){
                     alert('Incorrect Password or Username');
                 } else{

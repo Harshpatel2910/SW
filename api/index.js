@@ -104,14 +104,14 @@ async function generatepublicurl(id) {
 
 const bcryptSalt = bcrypt.genSaltSync(10);
 const jwtSecret = "bjhfewf74926966jheufuf";
-// app.use(
-//   cors({
-//     credentials: true,
-//     // origin: 'http://127.0.0.1:5173',
-//     origin: process.env.FRONTEND_URL,
-//   })
-// );
-app.use(cors({ credentials: true, origin: true }))
+app.use(
+  cors({
+    credentials: true,
+    // origin: 'http://127.0.0.1:5173',
+    origin: process.env.FRONTEND_URL,
+  })
+);
+// app.use(cors({ credentials: true, origin: true }))
 
 app.use(express.json()); // to parse the json to read data
 app.use(cookieParser());
@@ -162,9 +162,8 @@ app.post("/login", async (req, res) => {
           if (err) throw err;
           res.cookie("token", token,{
 
-            secure: process.env.NODE_ENV === "production", // Set to true in production
-            sameSite: "lax", // Set to "lax" or "strict" depending on your needs
-            httpOnly: true, // Recommended for security
+            samesite:'None',
+            secure:True
     
           });
           // console.log(token);

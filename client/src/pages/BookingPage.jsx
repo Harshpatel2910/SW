@@ -2,7 +2,12 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { Navigate, useParams } from "react-router-dom";
 import { format, differenceInCalendarDays } from "date-fns";
-
+const config = {
+    headers: {
+      "Content-Type": "application/json"
+      },
+      withCredentials: true
+    }
 export default function BookingPage(){
     const {id} = useParams();
     const [booking,setBooking] = useState(null);
@@ -19,7 +24,7 @@ export default function BookingPage(){
         if(!id){
             return;
         }
-        axios.get('/bookings/'+id).then(response => {
+        axios.get('/bookings/'+id,config).then(response => {
             setBooking(response.data)
             setAddedFeedback(response.data.place.feedback);
             setPlaceId(response.data.place._id);
