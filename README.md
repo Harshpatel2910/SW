@@ -14,10 +14,3 @@ The primary objective of online hotel reservation systems is to provide customer
 
 ### Implementation:<br>
 We have used open-source MERN (MongoDB, ExpressJS, ReactJS and NodeJS) stack for the development process. MERN stack enabled us to create entire project using using just one language i.e. javascript and provide flexibility by allowing separate development of frontend & backend. The front-end is built using React.js and Tailwind CSS. Express and Node.js are used to build the back-end. We have used No-SQL MongoDB as the database to store and retrieve the information.
-
-<ul>
-<li> <b>Lab-2:</b> Identified the functional and non-functional requirements of the project and finalized the project model to be used in the course.  </li>
-<li> <b>Lab-3:</b> Made the use-case diagram and stated the relationships between the actors and the use cases. Documented the use case textual description for each use case. Justified the non-functional requirements.</li>
-<li> <b>Lab-4:</b> Finalized the tool, frameworks and technologies to be used for the project. Effort estimation using Use case size point. </li>
-<li> <b>Lab-6:</b> Developed Domain analysis model, sequence diagram, class diagram, identified the design goals, entity obejects, boundary objects and control objects. </li>
-</ul>
